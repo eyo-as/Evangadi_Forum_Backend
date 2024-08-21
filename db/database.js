@@ -36,7 +36,7 @@ const createTables = async () => {
   talbleList.map(async (query) => {
     try {
       const [result] = await dbConfig.query(query);
-      console.log("result", result);
+      console.log("result");
     } catch (error) {
       console.log("error on database tables ", error);
     }
