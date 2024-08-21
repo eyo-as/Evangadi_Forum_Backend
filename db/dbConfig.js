@@ -8,10 +8,15 @@ const dbConnection = mysql2.createPool({
   // password: process.env.DB_PASSWORD,
   // connectionLimit: 10,
 
-  user: "deveyomw_new-user",
-  database: "deveyomw_new-db",
-  host: "109.70.148.62",
-  password: "@eyo4s78",
+  // user: "deveyomw_new-user",
+  // database: "deveyomw_new-db",
+  // host: "109.70.148.62",
+  // password: "@eyo4s78",
+  // connectionLimit: 10,
+  user: "evangadi-user",
+  database: "evangadi_forum",
+  host: "localhost",
+  password: "@eyo4s78DataBase",
   connectionLimit: 10,
 });
 
