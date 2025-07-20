@@ -3,7 +3,16 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const port = process.env.PORT;
-app.use(cors());
+
+// Set up the CORS options to allow requests from our front-end
+const corsOptions = {
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+// add the cors middleware
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 // Middleware to parse JSON bodies
 app.use(express.json());
 
