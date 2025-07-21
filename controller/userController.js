@@ -18,7 +18,7 @@ async function register(req, res) {
   // Check if user already exists
   try {
     const [user] = await dbConnection.query(
-      "SELECT username,userid FROM userTable WHERE username = ? or email = ?",
+      "SELECT username,userid FROM usertable WHERE username = ? or email = ?",
       [username, email]
     );
 
@@ -38,7 +38,7 @@ async function register(req, res) {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     await dbConnection.query(
-      "INSERT INTO userTable (username,firstname,lastname,email,password) VALUES (?,?,?,?,?)",
+      "INSERT INTO usertable (username,firstname,lastname,email,password) VALUES (?,?,?,?,?)",
       [username, firstname, lastname, email, hashedPassword]
     );
     return res.status(201).json({ msg: "user registered successfully" });
@@ -60,7 +60,7 @@ async function login(req, res) {
   }
   try {
     const [user] = await dbConnection.query(
-      "SELECT username,userid,password FROM userTable WHERE email=?",
+      "SELECT username,userid,password FROM usertable WHERE email=?",
       [email]
     );
 
