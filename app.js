@@ -10,9 +10,8 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true,
 };
-// add the cors middleware
+// Add the CORS middleware before any route handlers
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
 // Middleware to parse JSON bodies
 app.use(express.json());
 
